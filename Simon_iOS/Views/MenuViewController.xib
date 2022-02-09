@@ -3,13 +3,19 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="upheavtt.ttf">
+            <string>UpheavalTT-BRK-</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Simon_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="playButton" destination="rMI-uz-9z1" id="L7m-up-9en"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,22 +24,50 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrN-6b-KQk">
-                    <rect key="frame" x="177" y="313" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsY-0e-8V5">
+                    <rect key="frame" x="85" y="44" width="244" height="72"/>
+                    <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="80"/>
+                    <color key="textColor" name="Y in blue"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMI-uz-9z1">
+                    <rect key="frame" x="57" y="378" width="300" height="150"/>
+                    <color key="backgroundColor" name="Oxford Blue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="0V9-lX-iKu"/>
+                        <constraint firstAttribute="width" constant="300" id="Pb1-mu-aQi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="50"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Jouer"/>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="L9C-iB-s7A"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="114"/>
+            <color key="backgroundColor" name="Baby Blue Eyes"/>
+            <constraints>
+                <constraint firstItem="rMI-uz-9z1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2bp-hA-YO9"/>
+                <constraint firstItem="rMI-uz-9z1" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="3WJ-M8-Wuu"/>
+                <constraint firstItem="KsY-0e-8V5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="S1z-ho-4X7"/>
+                <constraint firstItem="KsY-0e-8V5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Z8v-hq-52W"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Baby Blue Eyes">
+            <color red="0.6705882352941176" green="0.82352941176470584" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Oxford Blue">
+            <color red="0.035294117647058823" green="0.082352941176470587" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Y in blue">
+            <color red="0.23921568627450981" green="0.31764705882352939" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

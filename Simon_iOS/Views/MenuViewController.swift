@@ -8,12 +8,18 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    @IBOutlet weak var playButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.playButton.layer.cornerRadius = 8
+        
 
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    @IBAction func playButtonAction(_ sender: Any) {
+        self.navigationController?.pushViewController(GameViewController(), animated: true)
+    }
+    
 }
