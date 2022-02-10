@@ -137,6 +137,8 @@ class GameViewController: UIViewController {
         switch self.advancement {
         case 1:
             colorNumber = 5
+            let viewController = EndGameViewController.newInstance(isWin: false)
+            self.navigationController?.pushViewController(viewController, animated: true)
             break
         case 2:
             colorNumber = 6

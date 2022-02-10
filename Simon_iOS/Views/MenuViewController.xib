@@ -15,6 +15,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Simon_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="addAccessoriesButton" destination="fx3-9y-xXS" id="fR4-6C-bwp"/>
+                <outlet property="labelAccessories" destination="ULy-Kg-XY9" id="SbD-57-BMv"/>
                 <outlet property="playButton" destination="rMI-uz-9z1" id="L7m-up-9en"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,14 +49,41 @@
                         <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="L9C-iB-s7A"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-9y-xXS">
+                    <rect key="frame" x="57" y="762" width="300" height="100"/>
+                    <color key="backgroundColor" name="Y in blue"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="O3J-O4-Yed"/>
+                        <constraint firstAttribute="height" constant="100" id="Ufy-2s-rxm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="40"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="+ Accessoire"/>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addAccessories:" destination="-1" eventType="touchUpInside" id="Of2-hi-Fl1"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 accessoires connectés" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULy-Kg-XY9">
+                    <rect key="frame" x="75" y="734" width="264" height="18"/>
+                    <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="20"/>
+                    <color key="textColor" name="Y in blue"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Baby Blue Eyes"/>
             <constraints>
                 <constraint firstItem="rMI-uz-9z1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2bp-hA-YO9"/>
                 <constraint firstItem="rMI-uz-9z1" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="3WJ-M8-Wuu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fx3-9y-xXS" secondAttribute="bottom" id="Jxq-lA-guL"/>
                 <constraint firstItem="KsY-0e-8V5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="S1z-ho-4X7"/>
                 <constraint firstItem="KsY-0e-8V5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Z8v-hq-52W"/>
+                <constraint firstItem="ULy-Kg-XY9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="jLU-Y7-m8Z"/>
+                <constraint firstItem="fx3-9y-xXS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="jYe-WU-dbJ"/>
+                <constraint firstItem="fx3-9y-xXS" firstAttribute="top" secondItem="ULy-Kg-XY9" secondAttribute="bottom" constant="10" id="yyU-Ld-DSb"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </view>

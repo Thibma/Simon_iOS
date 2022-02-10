@@ -18,6 +18,9 @@
 		938F6F0527B16E9A0003D996 /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938F6F0427B16E9A0003D996 /* upheavtt.ttf */; };
 		93D3A2AE27B4026A00ABCE52 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3A2AC27B4026A00ABCE52 /* EndGameViewController.swift */; };
 		93D3A2AF27B4026A00ABCE52 /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */; };
+		93F5446227B557530068854E /* AccessoriesBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */; };
+		93F5446327B557530068854E /* AccessoriesBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */; };
+		93F5446827B564510068854E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F5446527B55E600068854E /* HomeKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,10 @@
 		938F6F0427B16E9A0003D996 /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
 		93D3A2AC27B4026A00ABCE52 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
+		93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesBrowserViewController.swift; sourceTree = "<group>"; };
+		93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccessoriesBrowserViewController.xib; sourceTree = "<group>"; };
+		93F5446527B55E600068854E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		93F5446727B55F970068854E /* Simon_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simon_iOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F5446827B564510068854E /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +60,7 @@
 			children = (
 				936AD67227B15D4800CFE1A4 /* Simon_iOS */,
 				936AD67127B15D4800CFE1A4 /* Products */,
+				93F5446427B55E5F0068854E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +75,7 @@
 		936AD67227B15D4800CFE1A4 /* Simon_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				93F5446727B55F970068854E /* Simon_iOS.entitlements */,
 				936AD68B27B15E8100CFE1A4 /* Views */,
 				936AD67327B15D4800CFE1A4 /* AppDelegate.swift */,
 				9376E07927B279E70098F341 /* Color.swift */,
@@ -86,8 +96,18 @@
 				9376E07627B273480098F341 /* GameViewController.xib */,
 				93D3A2AC27B4026A00ABCE52 /* EndGameViewController.swift */,
 				93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */,
+				93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */,
+				93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		93F5446427B55E5F0068854E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93F5446527B55E600068854E /* HomeKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +173,7 @@
 				938F6F0527B16E9A0003D996 /* upheavtt.ttf in Resources */,
 				936AD68F27B1618B00CFE1A4 /* MenuViewController.xib in Resources */,
 				936AD67D27B15D4B00CFE1A4 /* Assets.xcassets in Resources */,
+				93F5446327B557530068854E /* AccessoriesBrowserViewController.xib in Resources */,
 				9376E07827B273480098F341 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +187,7 @@
 			files = (
 				936AD67427B15D4800CFE1A4 /* AppDelegate.swift in Sources */,
 				9376E07A27B279E70098F341 /* Color.swift in Sources */,
+				93F5446227B557530068854E /* AccessoriesBrowserViewController.swift in Sources */,
 				93D3A2AE27B4026A00ABCE52 /* EndGameViewController.swift in Sources */,
 				9376E07727B273480098F341 /* GameViewController.swift in Sources */,
 				936AD68E27B1618B00CFE1A4 /* MenuViewController.swift in Sources */,
@@ -307,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Simon_iOS/Simon_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7LLQM9V59;
@@ -334,6 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Simon_iOS/Simon_iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7LLQM9V59;
