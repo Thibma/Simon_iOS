@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HomeKit
 
 class GameViewController: UIViewController {
 
@@ -28,6 +29,16 @@ class GameViewController: UIViewController {
     
     var model: [Color] = []
     var userInput: [Color] = []
+    
+    var led: HMAccessory!
+    
+    var arrayHomeBridge: String = ""
+    
+    class func newInstance(led: HMAccessory) -> GameViewController {
+        let viewController = GameViewController()
+        viewController.led = led
+        return viewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +110,7 @@ class GameViewController: UIViewController {
     
     func addLabel(string: String, color: UIColor, emplacement: Int) {
         let label = self.labelsSelection[emplacement]
+        label.font = .init(name: "Upheaval TT -BRK-", size: 20)
         label.text = string
         label.textColor = color
     }
@@ -137,8 +149,6 @@ class GameViewController: UIViewController {
         switch self.advancement {
         case 1:
             colorNumber = 5
-            let viewController = EndGameViewController.newInstance(isWin: false)
-            self.navigationController?.pushViewController(viewController, animated: true)
             break
         case 2:
             colorNumber = 6
@@ -161,24 +171,38 @@ class GameViewController: UIViewController {
             break
         }
         
+        var array: [String] = []
         for _ in 0..<colorNumber {
             let randomColor = Int.random(in: 0...2)
             switch randomColor {
             case 0:
                 self.model.append(.red)
+                array.append("RED")
                 break
             case 1:
                 self.model.append(.blue)
+                array.append("BLUE")
                 break
             case 2:
                 self.model.append(.green)
+                array.append("GREEN")
                 break
             default:
                 print("error select random color")
                 break
             }
+            self.arrayHomeBridge = array.joined(separator: ",")
             self.clearViewSelection()
-            print(self.model.last)
+        }
+        print(self.model)
+        for service in self.led.services {
+            for charac in service.characteristics {
+                if charac.characteristicType == "000000CE-0000-1000-8000-0026ABCDEF03" {
+                    charac.writeValue(self.arrayHomeBridge) { err in
+                        print(err)
+                    }
+                }
+            }
         }
     }
     

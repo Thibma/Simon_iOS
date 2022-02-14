@@ -25,7 +25,23 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func playButtonAction(_ sender: Any) {
-        self.navigationController?.pushViewController(GameViewController(), animated: true)
+        var led: HMAccessory! = nil
+        for accessory in self.home.accessories {
+            print(accessory.model)
+            if (accessory.model == "Raspberry-LED") {
+                led = accessory
+            }
+        }
+        
+        if led == nil {
+            let alert = UIAlertController.init(title: "LEDs non trouvées", message: "Merci d'ajouter des LEDS pour participer au jeu", preferredStyle: .alert)
+            alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else {
+            let vc = GameViewController.newInstance(led: led!)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func addAccessories(_ sender: Any) {
