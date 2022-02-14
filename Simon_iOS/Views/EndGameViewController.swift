@@ -28,16 +28,6 @@ class EndGameViewController: UIViewController {
         self.homeManager.delegate = self
         self.buttonBack.layer.cornerRadius = 8
         // Do any additional setup after loading the view.
-        
-        if self.isWin == true {
-            let characteristic = self.getPowerStateCharacteristic()
-            characteristic?.writeValue(true, completionHandler: { err in
-                print("open")
-            })
-            
-        } else {
-            self.labelGame.text = "Echec, vous êtes coincés\ndans la pièce."
-        }
     }
     
     @IBAction func pushButtonBack(_ sender: Any) {
@@ -46,6 +36,7 @@ class EndGameViewController: UIViewController {
     
     func getPowerStateCharacteristic() -> HMCharacteristic? {
         var accessory: HMAccessory! = nil
+        
         for access in self.home.accessories {
             if access.model!.contains("Eve Energy") {
                 accessory = access
@@ -78,10 +69,19 @@ extension EndGameViewController: HMHomeManagerDelegate {
             }
         }
         
-        let characteristic = self.getPowerStateCharacteristic()
-        let isWritable = characteristic?.properties.firstIndex(where: { props in
-            return props == HMCharacteristicPropertyWritable
-        }) ?? -1
+        if self.home == nil {
+            print("home non trouvée")
+        }
+        
+        if self.isWin == true {
+            let characteristic = self.getPowerStateCharacteristic()
+            characteristic?.writeValue(true, completionHandler: { err in
+                print("open")
+            })
+            
+        } else {
+            self.labelGame.text = "Echec, vous êtes coincés\ndans la pièce."
+        }
     }
     
 }

@@ -128,7 +128,7 @@ class GameViewController: UIViewController {
             self.heart1.image = UIImage.init(named: "deadHeart")
             let viewController = EndGameViewController.newInstance(isWin: false)
             self.navigationController?.pushViewController(viewController, animated: true)
-            break
+            return
         default:
             print("error life")
             break
@@ -148,24 +148,25 @@ class GameViewController: UIViewController {
         self.labelsSelection.removeAll()
         switch self.advancement {
         case 1:
-            colorNumber = 5
+            colorNumber = 2
             break
         case 2:
-            colorNumber = 6
+            colorNumber = 3
             break
         case 3:
-            colorNumber = 7
+            colorNumber = 4
             break
         case 4:
-            colorNumber = 8
+            colorNumber = 5
             break
         case 5:
-            colorNumber = 10
+            colorNumber = 6
             break
         case 6:
             // End of game
             let viewController = EndGameViewController.newInstance(isWin: true)
             self.navigationController?.pushViewController(viewController, animated: true)
+            return
         default:
             print("error color number")
             break
@@ -201,6 +202,8 @@ class GameViewController: UIViewController {
                     charac.writeValue(self.arrayHomeBridge) { err in
                         print(err)
                     }
+                    PauseViewController.showPause(parentVC: self, timer: self.model.count)
+                    
                 }
             }
         }

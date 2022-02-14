@@ -18,6 +18,8 @@
 		938F6F0527B16E9A0003D996 /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938F6F0427B16E9A0003D996 /* upheavtt.ttf */; };
 		93D3A2AE27B4026A00ABCE52 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3A2AC27B4026A00ABCE52 /* EndGameViewController.swift */; };
 		93D3A2AF27B4026A00ABCE52 /* EndGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */; };
+		93E856F127BB08A500FDE8AF /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E856EF27BB08A500FDE8AF /* PauseViewController.swift */; };
+		93E856F227BB08A500FDE8AF /* PauseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E856F027BB08A500FDE8AF /* PauseViewController.xib */; };
 		93F5446227B557530068854E /* AccessoriesBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */; };
 		93F5446327B557530068854E /* AccessoriesBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */; };
 		93F5446827B564510068854E /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F5446527B55E600068854E /* HomeKit.framework */; };
@@ -37,6 +39,8 @@
 		938F6F0427B16E9A0003D996 /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
 		93D3A2AC27B4026A00ABCE52 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EndGameViewController.xib; sourceTree = "<group>"; };
+		93E856EF27BB08A500FDE8AF /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		93E856F027BB08A500FDE8AF /* PauseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PauseViewController.xib; sourceTree = "<group>"; };
 		93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesBrowserViewController.swift; sourceTree = "<group>"; };
 		93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccessoriesBrowserViewController.xib; sourceTree = "<group>"; };
 		93F5446527B55E600068854E /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
@@ -98,6 +102,8 @@
 				93D3A2AD27B4026A00ABCE52 /* EndGameViewController.xib */,
 				93F5446027B557530068854E /* AccessoriesBrowserViewController.swift */,
 				93F5446127B557530068854E /* AccessoriesBrowserViewController.xib */,
+				93E856EF27BB08A500FDE8AF /* PauseViewController.swift */,
+				93E856F027BB08A500FDE8AF /* PauseViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 				938F6F0527B16E9A0003D996 /* upheavtt.ttf in Resources */,
 				936AD68F27B1618B00CFE1A4 /* MenuViewController.xib in Resources */,
 				936AD67D27B15D4B00CFE1A4 /* Assets.xcassets in Resources */,
+				93E856F227BB08A500FDE8AF /* PauseViewController.xib in Resources */,
 				93F5446327B557530068854E /* AccessoriesBrowserViewController.xib in Resources */,
 				9376E07827B273480098F341 /* GameViewController.xib in Resources */,
 			);
@@ -190,6 +197,7 @@
 				93F5446227B557530068854E /* AccessoriesBrowserViewController.swift in Sources */,
 				93D3A2AE27B4026A00ABCE52 /* EndGameViewController.swift in Sources */,
 				9376E07727B273480098F341 /* GameViewController.swift in Sources */,
+				93E856F127BB08A500FDE8AF /* PauseViewController.swift in Sources */,
 				936AD68E27B1618B00CFE1A4 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
