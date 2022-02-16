@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol PauseViewControllerDelegate {
+    func dismissScreen()
+}
+
 class PauseViewController: UIViewController {
     @IBOutlet var viewPopup: UIView!
+    
+    var delegate: PauseViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,8 @@ class PauseViewController: UIViewController {
         viewController.modalPresentationStyle = .custom
         viewController.modalTransitionStyle = .crossDissolve
         
+        viewController.delegate = parentVC as? PauseViewControllerDelegate
+        
         parentVC.present(viewController, animated: false, completion: nil)
         
         Timer.scheduledTimer(timeInterval: Double(timer), target: viewController, selector: #selector(dismissScreen), userInfo: nil, repeats: false)
@@ -30,6 +38,7 @@ class PauseViewController: UIViewController {
     }
     
     @objc func dismissScreen() {
+        self.delegate?.dismissScreen()
         self.dismiss(animated: false, completion: nil)
     }
 

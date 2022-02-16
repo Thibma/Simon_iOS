@@ -7,6 +7,7 @@
 
 import UIKit
 import HomeKit
+import AVFoundation
 
 class EndGameViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class EndGameViewController: UIViewController {
     var isWin: Bool!
     var homeManager: HMHomeManager! = HMHomeManager()
     var home: HMHome!
+    
+    var player: AVAudioPlayer!
     
     class func newInstance(isWin: Bool) -> EndGameViewController {
         let viewController = EndGameViewController()
@@ -73,13 +76,36 @@ extension EndGameViewController: HMHomeManagerDelegate {
             print("home non trouvée")
         }
         
+        
         if self.isWin == true {
             let characteristic = self.getPowerStateCharacteristic()
+            guard let sound = Bundle.main.url(forResource: "Victory", withExtension: "mp3") else {
+                return
+            }
+            
+            guard let player = try? AVAudioPlayer(contentsOf: sound) else {
+                return
+            }
+            
+            player.volume = 1
+            player.play()
+            self.player = player
             characteristic?.writeValue(true, completionHandler: { err in
                 print("open")
             })
             
         } else {
+            guard let sound = Bundle.main.url(forResource: "GameOver", withExtension: "mp3") else {
+                return
+            }
+            
+            guard let player = try? AVAudioPlayer(contentsOf: sound) else {
+                return
+            }
+            
+            player.volume = 1
+            player.play()
+            self.player = player
             self.labelGame.text = "Echec, vous êtes coincés\ndans la pièce."
         }
     }

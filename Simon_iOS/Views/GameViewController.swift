@@ -7,6 +7,7 @@
 
 import UIKit
 import HomeKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -34,6 +35,10 @@ class GameViewController: UIViewController {
     
     var arrayHomeBridge: String = ""
     
+    var playerSound: AVAudioPlayer!
+    var playerMusicPreparation: AVAudioPlayer!
+    var playerMusicGame: AVAudioPlayer!
+    
     class func newInstance(led: HMAccessory) -> GameViewController {
         let viewController = GameViewController()
         viewController.led = led
@@ -46,7 +51,31 @@ class GameViewController: UIViewController {
         self.greenButton.layer.cornerRadius = 8
         self.blueButton.layer.cornerRadius = 8
         self.clearButton.layer.cornerRadius = 8
+        
+        guard let sound = Bundle.main.url(forResource: "Preparation", withExtension: "mp3") else {
+            return
+        }
+        
+        guard let player = try? AVAudioPlayer(contentsOf: sound) else {
+            return
+        }
+        
+        player.volume = 1
+        self.playerMusicPreparation = player
 
+        
+        guard let sound2 = Bundle.main.url(forResource: "Game", withExtension: "mp3") else {
+            return
+        }
+        
+        guard let player2 = try? AVAudioPlayer(contentsOf: sound2) else {
+            return
+        }
+        
+        player2.volume = 1
+        player2.numberOfLoops = .max
+        self.playerMusicGame = player2
+        
         self.selectCombinaison()
     }
 
@@ -98,12 +127,34 @@ class GameViewController: UIViewController {
                 if self.userInput[i] != self.model[i] {
                     print("BAD INPUT")
                     self.looseLife()
+                    guard let sound = Bundle.main.url(forResource: "Wrong", withExtension: "mp3") else {
+                        return
+                    }
+                    
+                    guard let player = try? AVAudioPlayer(contentsOf: sound) else {
+                        return
+                    }
+                    
+                    player.volume = 1
+                    player.play()
+                    self.playerSound = player
                     return
                 }
             }
             print("GOOD INPUT")
             self.advancement += 1
             self.selectCombinaison()
+            guard let sound = Bundle.main.url(forResource: "Correct", withExtension: "mp3") else {
+                return
+            }
+            
+            guard let player = try? AVAudioPlayer(contentsOf: sound) else {
+                return
+            }
+            
+            player.volume = 1
+            player.play()
+            self.playerSound = player
         }
         
     }
@@ -126,6 +177,8 @@ class GameViewController: UIViewController {
             break
         case 0:
             self.heart1.image = UIImage.init(named: "deadHeart")
+            self.playerMusicGame.stop()
+            self.playerMusicPreparation.stop()
             let viewController = EndGameViewController.newInstance(isWin: false)
             self.navigationController?.pushViewController(viewController, animated: true)
             return
@@ -164,6 +217,8 @@ class GameViewController: UIViewController {
             break
         case 6:
             // End of game
+            self.playerMusicGame.stop()
+            self.playerMusicPreparation.stop()
             let viewController = EndGameViewController.newInstance(isWin: true)
             self.navigationController?.pushViewController(viewController, animated: true)
             return
@@ -202,6 +257,8 @@ class GameViewController: UIViewController {
                     charac.writeValue(self.arrayHomeBridge) { err in
                         print(err)
                     }
+                    self.playerMusicPreparation.play()
+                    self.playerMusicGame.pause()
                     PauseViewController.showPause(parentVC: self, timer: self.model.count)
                     
                 }
@@ -217,4 +274,16 @@ class GameViewController: UIViewController {
         self.stateStackView.addArrangedSubview(label)
         self.labelsSelection.append(label)
     }
+}
+
+
+extension GameViewController: PauseViewControllerDelegate {
+    
+    
+    func dismissScreen() {
+        self.playerMusicPreparation.pause()
+        self.playerMusicGame.play()
+    }
+    
+    
 }
